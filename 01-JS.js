@@ -1,69 +1,72 @@
-// -----------------------------
-// VARIABLES & CONSTANTS
-// -----------------------------
-let age = 21;
-const PI = 3.14;
+// -------------------- VARIABLES --------------------
 
-console.log(age, PI); // Output: 21 3.14
+let age = 21; // let → value can change
+const PI = 3.14; // const → value cannot change
 
-// -----------------------------
-// DATA TYPES CHECKING
-// -----------------------------
+console.log(age, PI);
+
+// Uncommenting below will throw an error because PI is constant
+// PI = 3.15;
+// console.log(PI);
+
+// -------------------- TYPE CHECKING --------------------
+
 console.log(typeof age); // number
 console.log(typeof "Hello"); // string
 console.log(typeof true); // boolean
 
+// -------------------- TYPE CONVERSION --------------------
+
 let num = "50";
 
-// Type Conversion Examples
 console.log(typeof Number(num)); // number
-console.log(Boolean("5")); // true (non-empty string is truthy)
 
-// -----------------------------
-// OPERATORS
-// -----------------------------
+// -------------------- OPERATORS --------------------
 
-// Arithmetic & Comparison
-console.log(10 + 5); // 15
-console.log(10 > 5); // true
+// Arithmetic
+console.log(10 + 5);
+console.log(10 - 5, 10 * 5, 10 / 5);
 
-// == vs ===
-console.log(5 == "5"); // true (only checks value)
-console.log(5 === "5"); // false (checks value + type)
+// Comparison
+console.log(5 == "5"); // true (value only)
+console.log(5 === "5"); // false (value + type strict compare)
 
-// Ternary Operator
-console.log(5 < 3 ? "Yes" : "No"); // Output: No
+// Logical
+console.log(true && false); // false
+console.log(true || false); // true
 
-// -----------------------------
-// CONDITIONAL STATEMENTS
-// -----------------------------
+// Ternary
+console.log(5 > 3 ? "Yes" : "No");
 
-// if / else
+// -------------------- IF ELSE --------------------
+
 if (5 > 3) {
   console.log("Yes");
 } else {
   console.log("No");
 }
 
-// switch
-let day = 20;
+// -------------------- SWITCH --------------------
+
+let day = 2;
 
 switch (day) {
   case 1:
-    console.log("Mon");
+    console.log("Sun");
     break;
   case 2:
+    console.log("Mon");
+    break;
+  case 3:
     console.log("Tue");
     break;
   default:
-    console.log("Invalid Num");
+    console.log("Invalid day");
 }
 
-// -----------------------------
-// LOOPS
-// -----------------------------
+// -------------------- LOOPS --------------------
 
-// Regular for loop
+// Normal for loop
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
@@ -75,25 +78,25 @@ while (i < 5) {
   i++;
 }
 
-// for...of → used for arrays
-const nums = [10, 20, 30, 40];
-for (const num of nums) {
-  console.log(num);
+// -------------------- LOOP VARIATIONS --------------------
+
+// for...of (Used with arrays)
+let nums = [10, 20, 30, 40];
+for (const n of nums) {
+  console.log(n);
 }
 
-// for...in → used for objects
+// for...in (Used with objects)
 const user = {
   name: "JD",
-  age: 25,
+  age: 20,
 };
 
 for (const key in user) {
   console.log(key, user[key]);
 }
 
-// -----------------------------
-// FUNCTIONS (3 TYPES)
-// -----------------------------
+// -------------------- FUNCTIONS --------------------
 
 // 1. Normal Function
 function add(a, b) {
@@ -108,38 +111,32 @@ const divide = function (a, b) {
   return a / b;
 };
 
-console.log(
-  add(5, 5), // 10
-  multiply(4, 3), // 12
-  divide(10, 2) // 5
-);
+console.log(add(5, 5), multiply(5, 2), divide(10, 2));
 
-// -----------------------------
-// STRING METHODS
-// -----------------------------
+// -------------------- STRING METHODS --------------------
+
 let msg = "Hello JD";
-
 console.log(msg.length); // 8
 console.log(msg.slice(0, 5)); // Hello
 console.log(msg.includes("JD")); // true
 
-// -----------------------------
-// OBJECT METHODS
-// -----------------------------
+// -------------------- OBJECT METHODS --------------------
+
 const student = {
   name: "JD",
-  age: 25,
+  age: 21,
 };
 
-console.log(Object.keys(student)); // [ 'name', 'age' ]
-console.log(Object.values(student)); // [ 'JD', 25 ]
+console.log(Object.keys(student)); // ['name', 'age']
+console.log(Object.values(student)); // ['JD', 21]
+console.log(Object.entries(student)); // [['name','JD'], ['age',21]]
 
-// -----------------------------
-// RECURSION EXAMPLE (FACTORIAL)
-// -----------------------------
+// -------------------- RECURSION --------------------
+
 function fact(n) {
   if (n === 1) return 1;
-  return n * fact(n - 1);
+  return n * fact(n - 1); // recursive call
 }
 
 console.log(fact(5)); // Output: 120
+// Explanation: 5 * 4 * 3 * 2 * 1
